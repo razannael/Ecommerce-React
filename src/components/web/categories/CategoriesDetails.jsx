@@ -14,14 +14,20 @@ export default function CategoriesDetails() {
         return <h2>Loading...</h2>
     }
   return (
-    <div className='products'>
-       {data.length?data.map((product)=>
-         <div className='product' key={product._id}>
-           <img src={product.mainImage.secure_url}/>
-           <h2>{product.name}</h2>
-           <Link to={`/product/${product._id}`}>details</Link>
-         </div>
-       ):<h2>No Products</h2>}
+    <div className="products container pt-5 text-body-secondary">
+      <div className="row">
+        {data.length ? (
+          data.map((product) => (
+            <div className="product col-md-4 pb-5 text-center" key={product._id}>
+              <img className="w-75 rounded" src={product.mainImage.secure_url} />
+              <h2 className='pt-3 text-center fs-6'>{product.name}</h2>
+              <div className='mt-3 p-1 w-25 btn btn-outline-secondary' ><Link className='text-decoration-none text-body-secondary' to={`/product/${product._id}`}>details</Link></div>
+            </div>
+          ))
+        ) : (
+          <h2>No Products</h2>
+        )}
+      </div>
     </div>
-  )
+  );
 }
