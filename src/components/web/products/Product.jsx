@@ -35,7 +35,8 @@ export default function Product() {
 
         <div className="row justify-content-center align-items-center p-3">
           <div className="col-lg-12">
-            <h2 className="text-center">{data.name}</h2>
+            <h2 className="text-center mb-2">{data.name}</h2>
+            <h2 className='text-center fs-4 fw-medium'>{data.price}$</h2>
             <div
               className="img row pt-3 justify-content-center align-items-center"
               key={data._id}
