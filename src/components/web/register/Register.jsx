@@ -6,7 +6,7 @@ import axios from 'axios';
 import {toast } from 'react-toastify';
 export default function Register() {
   const  initialValues={
-    username :'',
+    userName :'',
     email :'',
     password :'',
     image :'',
@@ -46,11 +46,11 @@ export default function Register() {
 
     const inputs =[
      {
-       id : 'username',
+       id : 'userName',
        type : 'text',
-       name : 'username',
-       title : 'user name',
-       value : formik.values.username,
+       name : 'userName',
+       title : 'user Name',
+       value : formik.values.userName,
      },
      {
        id :'email',

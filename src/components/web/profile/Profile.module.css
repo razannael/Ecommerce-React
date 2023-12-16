@@ -22,3 +22,12 @@ nav a{
     color: #fff;
     text-decoration: none;
 }
+
+table ,table td,table th{
+    color: #d8d6d6;
+    background-color: #585757;
+    margin-top: 60px;
+    padding: 20px;
+    border: 1px solid #3f3c3c;
+    text-align: center;
+}

@@ -12,8 +12,9 @@ export default function Profile() {
     <aside className={`${style.profile}`}>
       <div className={`${style.profileLinks}`}>
         <nav>
-          <Link to=''>Info</Link>
+          <Link to=''>Information</Link>
           <Link to='contact'>Contact</Link>
+          <Link to='order'>My Orders</Link>
         </nav>
       </div>
 

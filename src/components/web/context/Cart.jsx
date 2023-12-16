@@ -25,8 +25,7 @@ export function CartContextProvider({children}){
                     });
                     setCount(++count);
             }
-            return data;
-            
+            return data;   
         }catch(error){
         }
     }
@@ -53,7 +52,41 @@ export function CartContextProvider({children}){
 
       }
     }
-    return <CartContext.Provider value={{addToCartContext,getCartContext,removeItemContext,count,setCount}}>
+    const clearCart = async ()=>{
+        try{
+            const token = localStorage.getItem("userToken");
+            const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/clear`
+            ,{}
+            ,{headers:{Authorization:`Tariq__${token}`}});
+            return data;
+        
+           }catch(error){
+   
+         }
+    }
+    const setDecrease = async (productId)=>{
+        try{
+            const token = localStorage.getItem("userToken");
+            const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/decraseQuantity`
+            ,{productId}
+            ,{headers:{Authorization:`Tariq__${token}`}});
+            return data;
+           }catch(error){
+            console.log(error)
+         }
+    }
+    const setIncrease = async (productId)=>{
+        try{
+            const token = localStorage.getItem("userToken");
+            const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/incraseQuantity`
+            ,{productId}
+            ,{headers:{Authorization:`Tariq__${token}`}});
+            return data;
+           }catch(error){
+            console.log(error)
+         }
+    }
+    return <CartContext.Provider value={{addToCartContext,getCartContext,removeItemContext,count,setCount,clearCart,setDecrease,setIncrease}}>
         {children}
     </CartContext.Provider>;
 }
