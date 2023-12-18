@@ -10,7 +10,7 @@ if(loading){
 }
   return (
     <div className={`${style.userData}`}>
-    <h2>{userData.email}</h2>
+    <h2 className='mt-5 mb-5'>Gmail : {userData.email}</h2>
     <h2>{userData.phone}</h2>
   </div>
   )

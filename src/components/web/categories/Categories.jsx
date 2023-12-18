@@ -18,14 +18,12 @@ const getCategories = async()=>{
   return data;
 }
 const {data,isLoading} = useQuery('web_categories',getCategories);
-
-
 if(isLoading){
   return <h2>Loading...</h2>
 }
 
   return (
-    <div className='container pt-4'>
+    <div className='container pt-4 vh-100'>
       <div className='swiper-custom-pagination'></div>
      <Swiper
       modules={[Navigation, Pagination, Autoplay]}

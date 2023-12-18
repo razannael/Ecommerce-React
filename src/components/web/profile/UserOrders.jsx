@@ -23,6 +23,7 @@ const {data,isLoading}= useQuery('order',getOrders);
         <th>Order Number</th>
         <th>Your Address</th>
         <th>Your Phone</th>
+        <th>Coupon Name</th>
         <th>Created Time</th>
         <th>Final Price</th>
         <th>Status</th>
@@ -34,6 +35,7 @@ const {data,isLoading}= useQuery('order',getOrders);
              <td>{index}</td>
              <td>{order.address}</td>
              <td>{order.phoneNumber}</td>
+             <td>{order.couponName}</td>
              <td>{order.createdAt}</td>
              <td>{order.finalPrice}</td>
              <td>{order.status}</td>

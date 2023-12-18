@@ -15,7 +15,7 @@ export default function SendCode() {
      if (data.message=='success'){
        toast.success('input code', {
         position: "top-center",
-        autoClose: false,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -57,11 +57,11 @@ export default function SendCode() {
     )
   return (
     <>
-     <div className='container'>
+     <div className='container  vh-100 submitbutton text-center mt-5 w-50'>
      <h2>Send Code</h2>
       <form onSubmit={formik.handleSubmit}>
         {renderInputs}
-        <button type='submit' disabled={!formik.isValid}>Send</button>
+        <button className='btn w-25 mt-4 mb-3'  type='submit' disabled={!formik.isValid}> Send</button>
       </form>
      </div>
     </>

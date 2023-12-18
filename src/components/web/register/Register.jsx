@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { registerSchema } from '../validation/validate.js';
 import axios from 'axios';
 import {toast } from 'react-toastify';
+import '../addReview/AddReview.css'
 export default function Register() {
   const  initialValues={
     userName :'',
@@ -27,7 +28,7 @@ export default function Register() {
      if (data.message=='success'){
       toast.success('account created successsfully, plz verify your email to login ', {
         position: "bottom-center",
-        autoClose: false,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -91,11 +92,11 @@ export default function Register() {
     )
   return (
     <>
-     <div className='container'>
-     <h2>create account</h2>
+     <div className='container w-50 vh-100 text-center mt-5 submitbutton'>
+     <h2>Create Account</h2>
       <form onSubmit={formik.handleSubmit} encType='multipart/form-data'>
         {renderInputs}
-        <button type='submit' disabled={!formik.isValid}>Register</button>
+        <button className='btn w-25 mt-4'  type='submit' disabled={!formik.isValid}> Register </button>
       </form>
      </div>
     </>

@@ -10,7 +10,7 @@ export default function CreateOrder() {
   const  initialValues={
     phone :'',
     address :'',
-    coupon :'',
+    couponName :'',
    };
    const onSubmit = async (users)=> {
   try{  
@@ -18,11 +18,10 @@ export default function CreateOrder() {
      const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/order`,
      users,
      {headers:{Authorization:`Tariq__${token}`}});
-     console.log(data)
      if (data.message=='success'){
       toast.success('Your Order Created Successfully ', {
         position: "bottom-center",
-        autoClose: false,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -57,11 +56,11 @@ export default function CreateOrder() {
        value : formik.values.address,
      },
      {
-        id : 'coupon',
+        id : 'couponName',
         type : 'text',
-        name : 'coupon',
-        title : 'coupon',
-        value : formik.values.coupon,
+        name : 'couponName',
+        title : 'coupon Name',
+        value : formik.values.couponName,
       },
     ];
 
@@ -81,11 +80,11 @@ export default function CreateOrder() {
     )
   return (
     <>
-     <div className='container'>
+     <div className='container w-50 vh-100 text-center mt-5 submitbutton'>
      <h2>Create Order</h2>
       <form onSubmit={formik.handleSubmit} encType='multipart/form-data'>
         {renderInputs}
-        <button type='submit' disabled={!formik.isValid}>Order</button>
+        <button className='btn w-25 mt-4'  type='submit' disabled={!formik.isValid}> Order </button>
       </form>
      </div>
     </>

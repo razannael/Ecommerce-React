@@ -9,7 +9,7 @@ export default function Profile() {
     }
 
   return (
-    <aside className={`${style.profile}`}>
+    <aside  className={`${style.profile}`}>
       <div className={`${style.profileLinks}`}>
         <nav>
           <Link to=''>Information</Link>

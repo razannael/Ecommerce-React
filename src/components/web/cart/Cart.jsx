@@ -23,11 +23,11 @@ if(isLoading){
 }
   return (
     <div>
-       <div className="cart">
+       <div className="cart vh-100">
       <div className="container">
         <div className="row">
           <div className="cart-items">
-            <div className="products mt-5" id="products">
+            <div className="products" id="products">
               <div className="item">
                 <div className="product-info">
                   <h2>Product</h2>
@@ -128,34 +128,11 @@ if(isLoading){
               ):<h2>cart is empty</h2>}
 
             </div>
-            <div className="cart-summary w-25">
-              <h2>Cart summary</h2>
-              <div className="summery-items">
-                <div className="summary-item">
-                  <div className="form-group">
-                    <input type="radio" /> <label>Free shipping</label>
-                  </div>
-                  <span>$0.00</span>
+               <div className="checkout w-25">
+                  <Link  to='/createOrder'> Chekout</Link>
+                  <button className='clearbtn btn btn-danger' onClick={clearCart}>Clear Cart</button>
                 </div>
-                <div className="summary-item">
-                  <div className="form-group">
-                    <input type="radio" /> <label>Express shipping</label>
-                  </div>
-                  <span>+$15.00</span>
-                </div>
-                <div className="summary-item">
-                  <div className="form-group">
-                    <input type="radio" /> <label>Pick Up</label>
-                  </div>
-                  <span>%21.00</span>
-                </div>
-                <div className="checkout">
-                  <Link to='/createOrder'> Chekout</Link>
-                </div>
-              </div>
-            </div>
           </div>
-          <button className='w-25 btn btn-danger mb-3' onClick={clearCart}>Clear Cart</button>
         </div>
       </div>
     </div>

@@ -55,11 +55,23 @@
 }
 
 
+.row{
+    width: 100%;
+}
 
-
+.clearbtn{
+    margin-top: 20px;
+    width:100%;
+    display: flex;
+    color:#fff;
+    text-decoration: none;
+    justify-content: center;
+    padding: 10px 26px;
+    border-radius: 8px;
+}
 .product-item {
     display: flex;
-    gap:50px;
+    gap:60px;
     justify-content: space-between;
 }
  .product-info img {
@@ -298,5 +310,4 @@ footer .logo a {
 
 
 }
-
 

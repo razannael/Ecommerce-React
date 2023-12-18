@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link, useNavigate} from 'react-router-dom'
 import { UserContext } from '../context/User.jsx'
 import { CartContext } from '../context/Cart.jsx';
+import './Navbar.css'
 export default function Navbar() {
 
 let {userToken,setUserToken,userData,setUserData} = useContext(UserContext);
@@ -18,7 +19,7 @@ const logout=()=>{
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container">
           <a className="navbar-brand" href="#">
-            R-shop
+           <h4 className='logo'>Razan Shop</h4> 
           </a>
           <button
             className="navbar-toggler"
@@ -46,7 +47,7 @@ const logout=()=>{
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="">
+                <Link className="nav-link" to="/Products">
                   Products
                 </Link>
               </li>

@@ -1,0 +1,43 @@
+.itemAll h2{
+    color: rgb(55, 54, 56);
+    font-size: 20px;
+}
+.itemAll h3 {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    
+    color: rgba(72, 51, 80, 0.849);
+    font-size: 25px;
+}
+.itemAll img{
+    width: 60%;
+    margin-top: 20px;
+}
+.itemAll{
+    text-align: center;
+    margin: 15px;
+}
+.itemAll{
+    background-color: rgb(216, 216, 216);
+}
+.active button {
+    background-color: rgb(98, 97, 99) !important;
+    border: none;
+}
+.page-item .page-link{
+    color: rgb(103, 101, 105);
+    border: none;
+    background-color: rgb(223, 222, 224);
+}
+.myContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }

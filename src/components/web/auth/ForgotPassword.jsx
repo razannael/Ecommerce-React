@@ -17,7 +17,7 @@ export default function ForgotPassword() {
      if (data.message=='success'){
       toast.success('password updated ', {
         position: "bottom-center",
-        autoClose: false,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -75,11 +75,11 @@ export default function ForgotPassword() {
     )
   return (
     <>
-     <div className='container'>
+     <div className='container vh-100 submitbutton text-center mt-5 w-50'>
      <h2>Update Password</h2>
       <form onSubmit={formik.handleSubmit} encType='multipart/form-data'>
         {renderInputs}
-        <button type='submit' disabled={!formik.isValid}>Register</button>
+        <button className='btn w-25 mt-4 mb-3'  type='submit' disabled={!formik.isValid}> Confirm </button>
       </form>
      </div>
     </>

@@ -14,15 +14,14 @@ export default function CategoriesDetails() {
         return <h2>Loading...</h2>
     }
   return (
-    <div className="products container pt-5 text-body-secondary">
-      <div className="row">
+    <div className="products container pt-5 text-body-secondary vh-100">
+      <div className="row w-100 ms-2">
         {data.length ? (
           data.map((product) => (
-            <div className="product col-md-4 pb-5 text-center" key={product._id}>
-              <img className="w-75 rounded" src={product.mainImage.secure_url} />
-              <h2 className='pt-3 pb-2 text-center fs-6'>{product.name}</h2>
-              <h2>{product.price}$</h2>
-              <div className='mt-3 p-1 w-25 btn btn-outline-secondary' ><Link className='text-decoration-none text-body-secondary' to={`/product/${product._id}`}>details</Link></div>
+            <div className="product col-md-3 pb-5 m-4 text-center" key={product._id}>
+              <img className="w-100 rounded" src={product.mainImage.secure_url} />
+              <h2 className='pt-3 pb-2 text-center fs-6 w-100'>{product.name}</h2>
+              <h2>{product.price}$ <div className='ms-2 p-1 w-25 btn btn-outline-secondary' ><Link className='text-decoration-none text-body-secondary' to={`/product/${product._id}`}>details</Link></div></h2>
             </div>
           ))
         ) : (

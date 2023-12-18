@@ -2,9 +2,10 @@
     background-color: rgb(126, 124, 128);
     display: flex;
     gap: 30px;
+    height: auto;
 }
 .profileLinks nav{
-    background-color: rgb(78, 77, 78);
+    background-color: rgb(86, 84, 87);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -30,4 +31,10 @@ table ,table td,table th{
     padding: 20px;
     border: 1px solid #3f3c3c;
     text-align: center;
+}
+.profile img{
+    width: 50%;
+}
+.profile h2{
+    color: rgb(66, 64, 66);
 }

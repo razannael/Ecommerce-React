@@ -6,6 +6,7 @@ import axios from 'axios';
 import {toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/User.jsx';
+import '../addReview/AddReview.css'
 export default function Login() {
   const navigate = useNavigate();
   let {userToken,setUserToken} = useContext(UserContext);
@@ -24,7 +25,7 @@ export default function Login() {
       setUserToken(data.token);
        toast.success('login successfully', {
         position: "top-center",
-        autoClose: false,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -32,7 +33,7 @@ export default function Login() {
         progress: undefined,
         theme: "dark",
         });
-       navigate('/home');
+       navigate('/');
      }
     };
      const formik = useFormik({
@@ -73,13 +74,13 @@ export default function Login() {
     )
   return (
     <>
-     <div className='container'>
+     <div className='container vh-100 submitbutton text-center mt-5 w-50'>
      <h2>Login</h2>
       <form onSubmit={formik.handleSubmit}>
         {renderInputs}
-        <button type='submit' disabled={!formik.isValid}>Login</button>
-        <Link to='/sendCode'>Forget Password ?</Link>
+        <button className='btn w-25 mt-4 mb-3'  type='submit' disabled={!formik.isValid}> Login</button>
       </form>
+      <Link className=' text-decoration-none' to='/sendCode'>Forget Password ?</Link>
      </div>
     </>
   )

@@ -5,6 +5,10 @@ export const CartContext = createContext(null);
 
 export function CartContextProvider({children}){
     let [count,setCount] = useState(0);
+    const [ isLoading , setIsLoading] = useState(false);
+    if(isLoading){
+        return <h2>Loading...</h2>
+    }
     const addToCartContext = async (productId)=>{
         try{
             const token= localStorage.getItem("userToken");
@@ -41,11 +45,13 @@ export function CartContextProvider({children}){
         }
     }
     const removeItemContext = async (productId)=>{
+        setIsLoading(true);
       try{
          const token = localStorage.getItem("userToken");
          const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/removeItem`
          ,{productId}
          ,{headers:{Authorization:`Tariq__${token}`}});
+         setIsLoading(false);
          return data;
      
         }catch(error){
@@ -53,11 +59,13 @@ export function CartContextProvider({children}){
       }
     }
     const clearCart = async ()=>{
+        setIsLoading(true);
         try{
             const token = localStorage.getItem("userToken");
             const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/clear`
             ,{}
             ,{headers:{Authorization:`Tariq__${token}`}});
+            setIsLoading(false);
             return data;
         
            }catch(error){
@@ -65,25 +73,28 @@ export function CartContextProvider({children}){
          }
     }
     const setDecrease = async (productId)=>{
+        setIsLoading(true);
         try{
             const token = localStorage.getItem("userToken");
             const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/decraseQuantity`
             ,{productId}
             ,{headers:{Authorization:`Tariq__${token}`}});
+            setIsLoading(false);
             return data;
            }catch(error){
-            console.log(error)
+            
          }
     }
     const setIncrease = async (productId)=>{
+        setIsLoading(true);
         try{
             const token = localStorage.getItem("userToken");
             const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/incraseQuantity`
             ,{productId}
             ,{headers:{Authorization:`Tariq__${token}`}});
+            setIsLoading(false);
             return data;
            }catch(error){
-            console.log(error)
          }
     }
     return <CartContext.Provider value={{addToCartContext,getCartContext,removeItemContext,count,setCount,clearCart,setDecrease,setIncrease}}>
