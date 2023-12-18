@@ -10,7 +10,6 @@ export default function Products() {
  const getProducts = async(page) =>{
     const { data } = await axios.get(
       `${import.meta.env.VITE_API_URL}/products?page=${page}&limit=${pageSize}`);
-      console.log(data)
        return data; 
  }
 

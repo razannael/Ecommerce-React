@@ -53,7 +53,7 @@ export default function Product() {
                 <p className="mt-2">{data.description}</p>
               </div>
               <div className=' pt-2'>
-              <AddReview/>
+              <AddReview productId={productId}/>
               </div>
               <div className="reviews mt-2 w-75 p-4">
                 <h2 className='ms-5'>Reviews:</h2>

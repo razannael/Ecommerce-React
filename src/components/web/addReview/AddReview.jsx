@@ -5,18 +5,20 @@ import { addReviewSchema} from '../validation/validate.js';
 import axios from 'axios';
 import {toast } from 'react-toastify';
 import './AddReview.css'
-export default function AddReview() {
+import Stars from '../stars/Stars.jsx';
+export default function AddReview({productId}) {
   
   const  initialValues={
     comment :'',
     rating :'',
    };
-   const onSubmit = async  users=> {
+   const onSubmit = async (users)=> {
     try{
         const token = localStorage.getItem("userToken");
-        const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/products/656afed9415e5e5f8d84871f/review`,
+        const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/products/${productId}/review`,
         users,
         {headers:{Authorization:`Tariq__${token}`}});
+        console.log(data)
         if (data.message=='success'){
          toast.success('Your Review added successfully ', {
            position: "bottom-center",
@@ -79,9 +81,9 @@ export default function AddReview() {
       <form className='' onSubmit={formik.handleSubmit} encType='multipart/form-data'>
         <div className='yourReview'>
         {renderInputs}
-        <button className='btn '  type='submit' disabled={!formik.isValid}> Submit!</button>
+        {<Stars rating={inputs[1].value}/>}
+        <button className='btn mt-2'  type='submit' disabled={!formik.isValid}> Submit!</button>
         </div>
-     
       </form>
      </div>
     </div>

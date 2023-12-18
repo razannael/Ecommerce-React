@@ -27,7 +27,7 @@ if(isLoading){
       <div className="container">
         <div className="row">
           <div className="cart-items">
-            <div className="products" id="products">
+            <div className="qproducts" id="products">
               <div className="item">
                 <div className="product-info">
                   <h2>Product</h2>
@@ -128,7 +128,7 @@ if(isLoading){
               ):<h2>cart is empty</h2>}
 
             </div>
-               <div className="checkout w-25">
+               <div className="checkout w-25 ms-3">
                   <Link  to='/createOrder'> Chekout</Link>
                   <button className='clearbtn btn btn-danger' onClick={clearCart}>Clear Cart</button>
                 </div>

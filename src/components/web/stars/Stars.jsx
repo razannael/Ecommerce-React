@@ -9,11 +9,11 @@ export default function Stars({rating}) {
   return (
     <span key={index}>
       {rating >= index + 1 ? (
-        <FaStar className="icon" />
+        <FaStar className="icon fs-4" />
       ) : rating >= number ? (
-        <FaStarHalfAlt className="icon" />
+        <FaStarHalfAlt className="icon fs-4" />
       ) : (
-        <AiOutlineStar className="icon" />
+        <AiOutlineStar className="icon fs-4" />
       )}
     </span>
   );
