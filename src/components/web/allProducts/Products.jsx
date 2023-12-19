@@ -7,10 +7,11 @@ import Stars from '../stars/Stars.jsx';
 export default function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortingOption, setSortingOption] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
   const pageSize = 6;
- const getProducts = async(page ,sort) =>{
+ const getProducts = async(page ,sort , search) =>{
     const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/products?page=${page}&limit=${pageSize}&sort=${sort}`);
+      `${import.meta.env.VITE_API_URL}/products?page=${page}&limit=${pageSize}&sort=${sort}&search=${search}`);
         if (sort === "highToLow") {
           data.products.sort((a, b) => b.finalPrice - a.finalPrice);
         } else if (sort === "lowToHigh") {
@@ -20,7 +21,7 @@ export default function Products() {
        return data; 
  }
 
-const {data,isLoading}= useQuery(['product', currentPage ,sortingOption], () => getProducts(currentPage ,sortingOption));
+const {data,isLoading}= useQuery(['product', currentPage ,sortingOption,searchTerm], () => getProducts(currentPage ,sortingOption,searchTerm));
 
   if (isLoading) {
     return <p>Loading ...</p>;
@@ -33,40 +34,69 @@ const {data,isLoading}= useQuery(['product', currentPage ,sortingOption], () => 
 
     const handleSorting = (sortOption) => {
     setSortingOption(sortOption);
-    setCurrentPage(1); 
+   // setCurrentPage(1); 
   };
 
+    const handleSubmit = (e) => {
+    e.preventDefault(); 
+  };
 
   return (
     <div className="container myContainer ">
-      <div className="dropdown text-center mt-3">
-        <button 
-          className="btn btn-secondary dropdown-toggle" 
-          type="button"
-          id="dropdownMenu2"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        > Filter
-        </button>
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <li>
-            <button className="dropdown-item" type="button" onClick={() => handleSorting('All')}>
-              All
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" type="button" onClick={() => handleSorting('highToLow')}>
-              High Price First
-            </button>
-          </li>
-          <li>
-            <button className="dropdown-item" type="button" onClick={() => handleSorting('lowToHigh')}>
-              Low Price First
-            </button>
-          </li>
-        </ul>
+      <div className="text-center d-flex gustify-content-center">
+        <div className="dropdown text-center mt-3">
+          <button
+            className="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenu2"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {" "}
+            Filter
+          </button>
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li>
+              <button
+                className="dropdown-item"
+                type="button"
+                onClick={() => handleSorting("All")}
+              >
+                All
+              </button>
+            </li>
+            <li>
+              <button
+                className="dropdown-item"
+                type="button"
+                onClick={() => handleSorting("highToLow")}
+              >
+                High Price First
+              </button>
+            </li>
+            <li>
+              <button
+                className="dropdown-item"
+                type="button"
+                onClick={() => handleSorting("lowToHigh")}
+              >
+                Low Price First
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div className="input-group mb-3 mt-3 ms-2">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search for a product..."
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+            }}
+          />
+        </div>
       </div>
-
       <div className="row ms-4 mt-3">
         {data?.products.length ? (
           data.products.map((product) => (
@@ -102,7 +132,7 @@ const {data,isLoading}= useQuery(['product', currentPage ,sortingOption], () => 
               Previous
             </button>
           </li>
-          {[...Array(data.total)].map((_, index) => (
+          {[...Array(data.products.length)].map((_, index) => (
             <li
               key={index}
               className={`page-item ${
@@ -119,7 +149,7 @@ const {data,isLoading}= useQuery(['product', currentPage ,sortingOption], () => 
           ))}
           <li
             className={`page-item ${
-              currentPage === data.total ? "disabled" : ""
+              currentPage === data.products.length ? "disabled" : ""
             }`}
           >
             <button
