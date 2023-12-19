@@ -6,12 +6,13 @@
 }
 .profileLinks nav{
     background-color: rgb(86, 84, 87);
-    height: 100vh;
+    height:100vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
     text-align: center;
     padding-top: 30px;
+    
 }
 .profileLinks{
     width: 200px;
@@ -24,14 +25,21 @@ nav a{
     text-decoration: none;
 }
 
-table ,table td,table th{
+table:not(:last-child) ,table td,table th{
     color: #d8d6d6;
     background-color: #585757;
-    margin-top: 60px;
-    padding: 20px;
+   
     border: 1px solid #3f3c3c;
-    text-align: center;
+    
 }
+
+table , td , th{
+    text-align: center;
+    margin-top: 60px;
+    padding: 16px;
+}
+
+
 .profile img{
     width: 50%;
 }

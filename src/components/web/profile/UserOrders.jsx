@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./Profile.module.css";
 import { useQuery } from "react-query";
 import axios from "axios";
 export default function UserOrders() {
+
 
   const getOrders = async () => {
     const token = localStorage.getItem("userToken");
@@ -12,7 +13,18 @@ export default function UserOrders() {
        return data; 
   };
 
-const {data,isLoading}= useQuery('order',getOrders);
+const [filterItem , setFilterItem] = useState('all');
+
+  const cancelOrder = async (orderId)=>{
+    const token = localStorage.getItem("userToken");
+    const { data } = await axios.patch(
+      `${import.meta.env.VITE_API_URL}/order/cancel/${orderId}`,
+      {orderId},
+      { headers: { Authorization: `Tariq__${token}` } });
+       return data
+  }
+
+const {data ,isLoading}= useQuery('order',getOrders);
   if (isLoading) {
     return <p>Loading ...</p>;
   }
@@ -39,6 +51,7 @@ const {data,isLoading}= useQuery('order',getOrders);
              <td>{order.createdAt}</td>
              <td>{order.finalPrice}</td>
              <td>{order.status}</td>
+             {order.status != "cancelled" && order.status != "deliverd" && <button className="ms-2 btn btn-danger" onClick={() => cancelOrder(order._id)}>Cancel</button>}
            </tr>
        )}
       </tbody>
