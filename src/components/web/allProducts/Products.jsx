@@ -92,13 +92,14 @@ const {data,isLoading}= useQuery(['product', currentPage ,sortingOption,searchTe
             placeholder="Search for a product..."
             value={searchTerm}
             onChange={(e) => {
+              e.preventDefault();
               setSearchTerm(e.target.value);
             }}
           />
         </div>
       </div>
       <div className="row ms-4 mt-3">
-        {data?.products.length ? (
+        {data?.total ? (
           data.products.map((product) => (
             <div
               className="col-lg-3 itemAll border text-center m-4"
