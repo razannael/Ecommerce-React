@@ -37,9 +37,7 @@ const {data,isLoading}= useQuery(['product', currentPage ,sortingOption,searchTe
    // setCurrentPage(1); 
   };
 
-    const handleSubmit = (e) => {
-    e.preventDefault(); 
-  };
+
 
   return (
     <div className="container myContainer ">
@@ -53,7 +51,7 @@ const {data,isLoading}= useQuery(['product', currentPage ,sortingOption,searchTe
             aria-expanded="false"
           >
             {" "}
-            Filter
+            Sort
           </button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
             <li>
@@ -62,7 +60,7 @@ const {data,isLoading}= useQuery(['product', currentPage ,sortingOption,searchTe
                 type="button"
                 onClick={() => handleSorting("All")}
               >
-                All
+                Default
               </button>
             </li>
             <li>
@@ -86,7 +84,8 @@ const {data,isLoading}= useQuery(['product', currentPage ,sortingOption,searchTe
           </ul>
         </div>
         <div className="input-group mb-3 mt-3 ms-2">
-          <input
+           <form>
+           <input
             type="text"
             className="form-control"
             placeholder="Search for a product..."
@@ -96,6 +95,8 @@ const {data,isLoading}= useQuery(['product', currentPage ,sortingOption,searchTe
               setSearchTerm(e.target.value);
             }}
           />
+           </form>
+          
         </div>
       </div>
       <div className="row ms-4 mt-3">
