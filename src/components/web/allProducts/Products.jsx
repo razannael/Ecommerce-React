@@ -113,7 +113,7 @@ const {data,isLoading}= useQuery(['product', currentPage ,sortingOption,searchTe
                 <img src={product.mainImage.secure_url} alt="" />
                 <h2 className="mt-3">{product.name}</h2>
                 <h3>{product.finalPrice}$</h3>
-                <Stars rating={product.ratingNumbers} />
+                <Stars rating={product.avgRating} />
                 <button className="mb-3 btn btn-secondary mt-3">
                   Show Product
                 </button>
