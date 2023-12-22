@@ -15,7 +15,7 @@ export default function CategoriesDetails() {
         return <h2>Loading...</h2>
     }
   return (
-    <div className="products  container pt-5  vh-100">
+    <div className="products  container pt-5">
     <div className='row w-100 ms-2 mt-3'>
       {data.length ? (
         data.map((product) => (
