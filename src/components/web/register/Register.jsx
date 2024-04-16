@@ -24,7 +24,7 @@ export default function Register() {
      formData.append("email",users.email);
      formData.append("password",users.password);
      formData.append("image",users.image);
-     const {data} = await axios.post(`https://ecommerce-node4.vercel.app/auth/signup`,formData);
+     const {data} = await axios.post(`https://ecommerce-node4-five.vercel.app//auth/signup`,formData);
      if (data.message=='success'){
       toast.success('account created successsfully, plz verify your email to login ', {
         position: "bottom-center",
