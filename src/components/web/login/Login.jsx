@@ -19,7 +19,11 @@ export default function Login() {
    };
     
    const onSubmit = async users=> {
+<<<<<<< HEAD
     const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signin`,users);
+=======
+     const {data} = await axios.post(`https://ecommerce-node4-five.vercel.app//auth/signin`,users);
+>>>>>>> main
      if (data.message=='success'){
        localStorage.setItem("userToken",data.token);
       setUserToken(data.token);
