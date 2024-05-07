@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;500&display=swap');
+body{
+    background-color: rgb(183, 183, 190)
+}
+*{
+    font-family: 'Signika Negative', sans-serif;
+}

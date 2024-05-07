@@ -1,0 +1,48 @@
+.profile{
+    background-color: rgb(126, 124, 128);
+    display: flex;
+    gap: 30px;
+    height: auto;
+}
+.profileLinks nav{
+    background-color: rgb(86, 84, 87);
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding-top: 30px;
+    
+}
+.profileLinks{
+    width: 200px;
+}
+.userData{
+    flex-grow: 1;
+}
+nav a{
+    color: #fff;
+    text-decoration: none;
+}
+
+table:not(:last-child) ,table td,table th{
+    color: #d8d6d6;
+    background-color: #585757;
+   
+    border: 1px solid #3f3c3c;
+    
+}
+
+table , td , th{
+    text-align: center;
+    margin-top: 60px;
+    padding: 16px;
+}
+
+
+.profile img{
+    width: 50%;
+}
+.profile h2{
+    color: rgb(66, 64, 66);
+}

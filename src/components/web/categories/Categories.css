@@ -1,0 +1,30 @@
+.swiper{
+    padding: 70px;
+}
+
+.swiper-button-prev , .swiper-button-next{
+    background-color: rgb(190, 181, 196);
+    color: rgb(65, 51, 82);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.swiper-button-prev::after , .swiper-button-next::after ,
+.swiper-rtl .swiper-button-next:after
+{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.swiper-pagination-bullet{
+    background-color: rgb(65, 60, 77);
+}
+
+.swiper-custom-pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+

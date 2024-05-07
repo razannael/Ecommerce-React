@@ -1,0 +1,32 @@
+h1,p,h2{
+    color: rgb(54, 54, 54);
+}
+.pprice{
+    color: rgb(77, 43, 78);
+}
+.addbtn{
+    background-color: rgb(101, 90, 110) !important;
+    color: rgb(219, 219, 215) !important;
+}
+.reviews{
+    border-radius: 10px;
+    background-color: #bbb9bb;
+}
+.review{
+    background-color: #e2dfe2;
+    border-radius: 15px;
+    margin: 30px;
+    padding: 15px;
+    
+}
+.review h3{
+    font-size: 22px;
+    font-weight: 500;
+}
+.review span{
+    font-size: 18px;
+    font-weight: 400;
+}
+.icon-style{
+color: #d6b706;
+}

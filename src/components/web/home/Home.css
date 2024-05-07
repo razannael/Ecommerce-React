@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+.heading{
+    text-align: center;
+    background-color: rgb(104, 102, 105);
+    
+}
+.heading h1{
+    font-family: 'Caveat', cursive;
+    font-size: 60px;
+    color: #d3d1d1;
+}
+.icons{
+    color:#d3d1d1 ;
+    font-size: 50px;
+}
